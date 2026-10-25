@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Подключение к MySQL через P6Spy -->
+        <property name="hibernate.connection.driver_class">
+            com.p6spy.engine.spy.P6SpyDriver
+        </property>
+
+        <property name="hibernate.connection.url">
+            jdbc:p6spy:mysql://localhost:3306/movie
+        </property>
+
+        <property name="hibernate.connection.username">
+            root
+        </property>
+
+        <property name="hibernate.connection.password">
+            root_password
+        </property>
+
+        <!-- Настройки Hibernate -->
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQL8Dialect
+        </property>
+
+        <property name="hibernate.hbm2ddl.auto">
+            validate
+        </property>
+
+        <property name="hibernate.show_sql">
+            false
+        </property>
+
+        <!-- Управление текущей сессией -->
+        <property name="hibernate.current_session_context_class">
+            thread
+        </property>
+
+        <!-- Зарегистрированные Entity -->
+        <mapping class="org.example.entity.Film"/>
+        <mapping class="org.example.entity.Actor"/>
+        <mapping class="org.example.entity.Language"/>
+        <mapping class="org.example.entity.Inventory"/>
+        <mapping class="org.example.entity.Store"/>
+        <mapping class="org.example.entity.Staff"/>
+        <mapping class="org.example.entity.Country"/>
+        <mapping class="org.example.entity.City"/>
+        <mapping class="org.example.entity.Address"/>
+        <mapping class="org.example.entity.Category"/>
+        <mapping class="org.example.entity.Customer"/>
+        <mapping class="org.example.entity.FilmText"/>
+        <mapping class="org.example.entity.Payment"/>
+        <mapping class="org.example.entity.Rental"/>
+
+    </session-factory>
+</hibernate-configuration>
